@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  get "todos", to: "todos#index"
+  resources :todos
+  resources :users
 end
 
 # <HTTP Method> <url>, to:"<class>#<method>"
