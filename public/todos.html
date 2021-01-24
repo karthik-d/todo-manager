@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="css-reset.css" />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="todo-app.css" />
+</head>
+
+<body>
+    <article>
+        <h1 class="TodoPage__title">My To-do List</h1>
+        <section class="TodoAdd">
+            <input class="TodoAdd__text" type="text" placeholder="What's next?" />
+            <input class="TodoAdd__date" type="date" />
+            <input class="TodoAdd__button" type="button" value="Add" />
+        </section>
+
+        <section class="TodoItem">
+
+            <div class="TodoItemTitle">
+                <p class="TodoItemTitle__periodText">Due Today</p>
+                <p class="TodoItemTitle__completionText">0/2</p>
+            </div>
+            <ul class="TodoItemContent">
+                <li class="TodoItemContent__item">
+                    <label class="TodoItemContent__itemBlock">
+                        <input class="TodoItemContent__checkbox" type="checkbox" />
+                        <p class="TodoItemContent__task">Submit SaaS 201 project</p>
+                        <p class="TodoItemContent__overdueTag">Overdue</p>
+                        <a class="TodoItemContent__deleteAnchor" href="javascript:void(0)">
+                            <img class="TodoItemContent__deleteIcon" src="trash-can-outline.png" />
+                        </a>
+                    </label>
+                </li>
+                <li class="TodoItemContent__item">
+                    <label class="TodoItemContent__itemBlock">
+                        <input class="TodoItemContent__checkbox" type="checkbox" />
+                        <p class="TodoItemContent__task">Type Something</p>
+                        <a class="TodoItemContent__deleteAnchor" href="javascript:void(0)">
+                            <img class="TodoItemContent__deleteIcon" src="trash-can-outline.png" />
+                        </a>
+                    </label>
+                </li>
+            </ul>
+
+            <div class="TodoItemTitle">
+                <p class="TodoItemTitle__periodText">Due Tomorrow</p>
+                <p class="TodoItemTitle__completionText">0/1</p>
+            </div>
+            <ul class="TodoItemContent">
+                <li class="TodoItemContent__item">
+                    <label class="TodoItemContent__itemBlock">
+                        <input class="TodoItemContent__checkbox" type="checkbox" />
+                        <p class="TodoItemContent__task">Type Something</p>
+                        <a class="TodoItemContent__deleteAnchor" href="javascript:void(0)">
+                            <img class="TodoItemContent__deleteIcon" src="trash-can-outline.png" />
+                        </a>
+                    </label>
+                </li>
+            </ul>
+
+            <div class="TodoItemTitle">
+                <p class="TodoItemTitle__periodText">Remaining</p>
+                <p class="TodoItemTitle__completionText">0/3</p>
+            </div>
+            <ul class="TodoItemContent">
+                <li class="TodoItemContent__item">
+                    <label class="TodoItemContent__itemBlock">
+                        <input class="TodoItemContent__checkbox" type="checkbox" />
+                        <p class="TodoItemContent__task">Type Something</p>
+                        <p class="TodoItemContent__duedate">Jan 21</p>
+                        <a class="TodoItemContent__deleteAnchor" href="javascript:void(0)">
+                            <img class="TodoItemContent__deleteIcon" src="trash-can-outline.png" />
+                        </a>
+                    </label>
+                </li>
+                <li class="TodoItemContent__item">
+                    <label class="TodoItemContent__itemBlock">
+                        <input class="TodoItemContent__checkbox" type="checkbox" />
+                        <p class="TodoItemContent__task">Type Something</p>
+                        <p class="TodoItemContent__duedate">Jan 21</p>
+                        <a class="TodoItemContent__deleteAnchor" href="javascript:void(0)">
+                            <img class="TodoItemContent__deleteIcon" src="trash-can-outline.png" />
+                        </a>
+                    </label>
+                </li>
+                <li class="TodoItemContent__item">
+                    <label class="TodoItemContent__itemBlock">
+                        <input class="TodoItemContent__checkbox" type="checkbox" />
+                        <p class="TodoItemContent__task">Type Something</p>
+                        <p class="TodoItemContent__duedate">Jan 21</p>
+                        <a class="TodoItemContent__deleteAnchor" href="javascript:void(0)">
+                            <img class="TodoItemContent__deleteIcon" src="trash-can-outline.png" />
+                        </a>
+                    </label>
+                </li>
+            </ul>
+        </section>
+    </article>
+</body>
+
+</html>

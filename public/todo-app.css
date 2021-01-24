@@ -1,0 +1,134 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+    max-width: 600px;
+    margin: 40px auto;
+    background-color: white;
+}
+
+.TodoAdd {
+    margin-bottom: 24px;
+}
+
+.TodoPage__title {
+    font-weight: 600;
+    letter-spacing: 0.14px;
+    font-size: 20px;
+    color: #453C52;
+    line-height: 1.6;
+    margin-bottom: 12px;
+}
+
+.TodoItemTitle {
+    margin-top: 10px;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+}
+
+.TodoItemTitle__periodText {
+    font-weight: 600;
+    letter-spacing: 0.1px;
+    font-size: 14px;
+    color: #453C52;
+    line-height: 1.4;
+}
+
+.TodoItemTitle__completionText {
+    font-size: 12px;
+    letter-spacing: 0.09px;
+    margin-left: 10px;
+}
+
+.TodoAdd {
+    display: flex;
+    align-items: stretch;
+}
+
+.TodoAdd__text {
+    padding: 6px 12px;
+    margin-right: 10px;
+    border: 1px solid #BFB8CC;
+    border-radius: 4px;
+    font-family: 'Open Sans', sans-serif;
+    color: #453C52;
+}
+
+.TodoAdd__date {
+    padding: 6px;
+    margin-right: 10px;
+    border: 1px solid #BFB8CC;
+    border-radius: 4px;
+    font-family: 'Open Sans', sans-serif;
+    color: #453C52;
+}
+
+.TodoAdd__button {
+    padding: 6px;
+    margin-right: 10px;
+    background: #48BB78;
+    border: 1px transparent;
+    border-radius: 4px;
+    color: white;
+    width: 72px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+}
+
+.TodoItemContent {
+    margin-bottom: 10px;
+}
+
+.TodoItemContent__itemBlock {
+    display: inline-flex;
+    align-items: center;
+    padding: 2px 8px;
+}
+
+.TodoItemContent__item {
+    margin-bottom: 5px;
+}
+
+.TodoItemContent__checkbox {
+    border: 1px solid #BFB8CC;
+    border-radius: 4px;
+    width: 16px;
+    height: 16px;
+}
+
+.TodoItemContent__task {
+    font-size: 14px;
+    color: #453C52;
+    line-height: 1.4;
+    margin-left: 10px;
+}
+
+.TodoItemContent__overdueTag {
+    margin-left: 10px;
+    font-size: 12px;
+    color: #C53030;
+    letter-spacing: 0.09px;
+}
+
+.TodoItemContent__duedate {
+    margin-left: 10px;
+    font-size: 12px;
+    color: #726A7E;
+    letter-spacing: 0.09px;
+}
+
+.TodoItemContent__deleteAnchor {
+    margin-left: 16px;
+    visibility: hidden;
+}
+
+.TodoItemContent__deleteIcon {
+    width: 18px;
+}
+
+.TodoItemContent__itemBlock:hover {
+    background-color: #F1EDF7;
+}
+
+.TodoItemContent__itemBlock:hover .TodoItemContent__deleteAnchor {
+    visibility: visible;
+}
