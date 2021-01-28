@@ -95,6 +95,14 @@ body {
     height: 16px;
 }
 
+.TodoItemContent__checkbox:checked ~ .TodoItemContent__task {
+    font-size: 14px;
+    color: #453C52;
+    line-height: 1.4;
+    margin-left: 10px;
+    text-decoration: line-through;
+}
+
 .TodoItemContent__task {
     font-size: 14px;
     color: #453C52;

@@ -2189,3 +2189,283 @@ Processing by TodosController#index as HTML
 Completed 200 OK in 44ms (Views: 35.9ms | ActiveRecord: 7.5ms | Allocations: 12593)
 
 
+Started GET "/todos" for 127.0.0.1 at 2021-01-29 00:59:12 +0530
+  [1m[35m (28.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by TodosController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering todos/index.html.erb within layouts/application
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos" WHERE (due_date < '2021-01-29') AND "todos"."completed" = $1 AND "todos"."completed" = $2[0m  [["completed", false], ["completed", true]]
+  ↳ app/views/todos/_todoitem-section.html.erb:5
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos" WHERE (due_date < '2021-01-29') AND "todos"."completed" = $1[0m  [["completed", false]]
+  ↳ app/views/todos/_todoitem-section.html.erb:5
+  [1m[36mTodo Load (0.8ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE (due_date < '2021-01-29') AND "todos"."completed" = $1[0m  [["completed", false]]
+  ↳ app/views/todos/_todoitem-section.html.erb:10
+  Rendered todos/_todoitem-section.html.erb (Duration: 45.8ms | Allocations: 6286)
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos" WHERE (due_date = '2021-01-29') AND "todos"."completed" = $1[0m  [["completed", true]]
+  ↳ app/views/todos/_todoitem-section.html.erb:5
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos" WHERE (due_date = '2021-01-29')[0m
+  ↳ app/views/todos/_todoitem-section.html.erb:5
+  [1m[36mTodo Load (1.1ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE (due_date = '2021-01-29')[0m
+  ↳ app/views/todos/_todoitem-section.html.erb:10
+  Rendered todos/_todoitem-section.html.erb (Duration: 8.8ms | Allocations: 2243)
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos" WHERE (due_date > '2021-01-29') AND "todos"."completed" = $1[0m  [["completed", true]]
+  ↳ app/views/todos/_todoitem-section.html.erb:5
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos" WHERE (due_date > '2021-01-29')[0m
+  ↳ app/views/todos/_todoitem-section.html.erb:5
+  [1m[36mTodo Load (0.7ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE (due_date > '2021-01-29')[0m
+  ↳ app/views/todos/_todoitem-section.html.erb:10
+  Rendered todos/_todoitem-section.html.erb (Duration: 9.8ms | Allocations: 2285)
+  Rendered todos/index.html.erb within layouts/application (Duration: 113.1ms | Allocations: 12509)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 595.6ms | Allocations: 22979)
+Completed 200 OK in 803ms (Views: 705.4ms | ActiveRecord: 20.0ms | Allocations: 25662)
+
+
+Started GET "/todos" for 127.0.0.1 at 2021-01-29 01:01:18 +0530
+Processing by TodosController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering todos/index.html.erb within layouts/application
+Started GET "/todos" for 127.0.0.1 at 2021-01-29 01:01:19 +0530
+Processing by TodosController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering todos/index.html.erb within layouts/application
+  [1m[35m (88.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos" WHERE (due_date < '2021-01-29') AND "todos"."completed" = $1 AND "todos"."completed" = $2[0m  [["completed", false], ["completed", true]]
+  ↳ app/views/todos/_todoitem-section.html.erb:5
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos" WHERE (due_date < '2021-01-29') AND "todos"."completed" = $1[0m  [["completed", false]]
+  ↳ app/views/todos/_todoitem-section.html.erb:5
+  [1m[36mTodo Load (0.5ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE (due_date < '2021-01-29') AND "todos"."completed" = $1[0m  [["completed", false]]
+  ↳ app/views/todos/_todoitem-section.html.erb:10
+  Rendered todos/_todoitem-section.html.erb (Duration: 104.9ms | Allocations: 2685)
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos" WHERE (due_date = '2021-01-29') AND "todos"."completed" = $1[0m  [["completed", true]]
+  ↳ app/views/todos/_todoitem-section.html.erb:5
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos" WHERE (due_date = '2021-01-29')[0m
+  ↳ app/views/todos/_todoitem-section.html.erb:5
+  [1m[36mTodo Load (0.9ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE (due_date = '2021-01-29')[0m
+  ↳ app/views/todos/_todoitem-section.html.erb:10
+  Rendered todos/_todoitem-section.html.erb (Duration: 18.4ms | Allocations: 2244)
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos" WHERE (due_date > '2021-01-29') AND "todos"."completed" = $1[0m  [["completed", true]]
+  ↳ app/views/todos/_todoitem-section.html.erb:5
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos" WHERE (due_date > '2021-01-29')[0m
+  ↳ app/views/todos/_todoitem-section.html.erb:5
+  [1m[36mTodo Load (0.5ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE (due_date > '2021-01-29')[0m
+  ↳ app/views/todos/_todoitem-section.html.erb:10
+  Rendered todos/_todoitem-section.html.erb (Duration: 11.4ms | Allocations: 2289)
+  Rendered todos/index.html.erb within layouts/application (Duration: 403.2ms | Allocations: 10297)
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos" WHERE (due_date < '2021-01-29') AND "todos"."completed" = $1 AND "todos"."completed" = $2[0m  [["completed", false], ["completed", true]]
+  ↳ app/views/todos/_todoitem-section.html.erb:5
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos" WHERE (due_date < '2021-01-29') AND "todos"."completed" = $1[0m  [["completed", false]]
+  ↳ app/views/todos/_todoitem-section.html.erb:5
+  [1m[36mTodo Load (0.7ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE (due_date < '2021-01-29') AND "todos"."completed" = $1[0m  [["completed", false]]
+  ↳ app/views/todos/_todoitem-section.html.erb:10
+  Rendered todos/_todoitem-section.html.erb (Duration: 16.9ms | Allocations: 2386)
+  [1m[35m (2.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos" WHERE (due_date = '2021-01-29') AND "todos"."completed" = $1[0m  [["completed", true]]
+  ↳ app/views/todos/_todoitem-section.html.erb:5
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos" WHERE (due_date = '2021-01-29')[0m
+  ↳ app/views/todos/_todoitem-section.html.erb:5
+  [1m[36mTodo Load (0.7ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE (due_date = '2021-01-29')[0m
+  ↳ app/views/todos/_todoitem-section.html.erb:10
+  Rendered todos/_todoitem-section.html.erb (Duration: 18.3ms | Allocations: 2264)
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos" WHERE (due_date > '2021-01-29') AND "todos"."completed" = $1[0m  [["completed", true]]
+  ↳ app/views/todos/_todoitem-section.html.erb:5
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos" WHERE (due_date > '2021-01-29')[0m
+  ↳ app/views/todos/_todoitem-section.html.erb:5
+  [1m[36mTodo Load (0.6ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE (due_date > '2021-01-29')[0m
+  ↳ app/views/todos/_todoitem-section.html.erb:10
+  Rendered todos/_todoitem-section.html.erb (Duration: 11.0ms | Allocations: 2314)
+  Rendered todos/index.html.erb within layouts/application (Duration: 377.3ms | Allocations: 19913)
+[Webpacker] Everything's up-to-date. Nothing to do
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 421.0ms | Allocations: 24019)
+  Rendered layout layouts/application.html.erb (Duration: 566.2ms | Allocations: 26470)
+Completed 200 OK in 424ms (Views: 310.7ms | ActiveRecord: 112.6ms | Allocations: 24520)
+
+
+Completed 200 OK in 633ms (Views: 516.5ms | ActiveRecord: 95.9ms | Allocations: 27638)
+
+
+Started GET "/todos" for 127.0.0.1 at 2021-01-29 01:02:03 +0530
+Processing by TodosController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering todos/index.html.erb within layouts/application
+  [1m[35m (5.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos" WHERE (due_date < '2021-01-29') AND "todos"."completed" = $1 AND "todos"."completed" = $2[0m  [["completed", false], ["completed", true]]
+  ↳ app/views/todos/_todoitem-section.html.erb:5
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos" WHERE (due_date < '2021-01-29') AND "todos"."completed" = $1[0m  [["completed", false]]
+  ↳ app/views/todos/_todoitem-section.html.erb:5
+  [1m[36mTodo Load (0.8ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE (due_date < '2021-01-29') AND "todos"."completed" = $1[0m  [["completed", false]]
+  ↳ app/views/todos/_todoitem-section.html.erb:10
+  Rendered todos/_todoitem-section.html.erb (Duration: 18.5ms | Allocations: 2562)
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos" WHERE (due_date = '2021-01-29') AND "todos"."completed" = $1[0m  [["completed", true]]
+  ↳ app/views/todos/_todoitem-section.html.erb:5
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos" WHERE (due_date = '2021-01-29')[0m
+  ↳ app/views/todos/_todoitem-section.html.erb:5
+  [1m[36mTodo Load (0.6ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE (due_date = '2021-01-29')[0m
+  ↳ app/views/todos/_todoitem-section.html.erb:10
+  Rendered todos/_todoitem-section.html.erb (Duration: 9.8ms | Allocations: 2244)
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos" WHERE (due_date > '2021-01-29') AND "todos"."completed" = $1[0m  [["completed", true]]
+  ↳ app/views/todos/_todoitem-section.html.erb:5
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos" WHERE (due_date > '2021-01-29')[0m
+  ↳ app/views/todos/_todoitem-section.html.erb:5
+  [1m[36mTodo Load (0.5ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE (due_date > '2021-01-29')[0m
+  ↳ app/views/todos/_todoitem-section.html.erb:10
+  Rendered todos/_todoitem-section.html.erb (Duration: 7.5ms | Allocations: 2289)
+  Rendered todos/index.html.erb within layouts/application (Duration: 39.3ms | Allocations: 7763)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 1594.4ms | Allocations: 19906)
+Completed 200 OK in 1599ms (Views: 1587.3ms | ActiveRecord: 11.1ms | Allocations: 20988)
+
+
+Started GET "/todos" for 127.0.0.1 at 2021-01-29 01:02:40 +0530
+Processing by TodosController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering todos/index.html.erb within layouts/application
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos" WHERE (due_date < '2021-01-29') AND "todos"."completed" = $1 AND "todos"."completed" = $2[0m  [["completed", false], ["completed", true]]
+  ↳ app/views/todos/_todoitem-section.html.erb:5
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos" WHERE (due_date < '2021-01-29') AND "todos"."completed" = $1[0m  [["completed", false]]
+  ↳ app/views/todos/_todoitem-section.html.erb:5
+  [1m[36mTodo Load (0.6ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE (due_date < '2021-01-29') AND "todos"."completed" = $1[0m  [["completed", false]]
+  ↳ app/views/todos/_todoitem-section.html.erb:10
+  Rendered todos/_todoitem-section.html.erb (Duration: 14.2ms | Allocations: 2290)
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos" WHERE (due_date = '2021-01-29') AND "todos"."completed" = $1[0m  [["completed", true]]
+  ↳ app/views/todos/_todoitem-section.html.erb:5
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos" WHERE (due_date = '2021-01-29')[0m
+  ↳ app/views/todos/_todoitem-section.html.erb:5
+  [1m[36mTodo Load (0.7ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE (due_date = '2021-01-29')[0m
+  ↳ app/views/todos/_todoitem-section.html.erb:10
+  Rendered todos/_todoitem-section.html.erb (Duration: 75.7ms | Allocations: 2245)
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos" WHERE (due_date > '2021-01-29') AND "todos"."completed" = $1[0m  [["completed", true]]
+  ↳ app/views/todos/_todoitem-section.html.erb:5
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos" WHERE (due_date > '2021-01-29')[0m
+  ↳ app/views/todos/_todoitem-section.html.erb:5
+  [1m[36mTodo Load (0.8ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE (due_date > '2021-01-29')[0m
+  ↳ app/views/todos/_todoitem-section.html.erb:10
+  Rendered todos/_todoitem-section.html.erb (Duration: 8.4ms | Allocations: 2289)
+  Rendered todos/index.html.erb within layouts/application (Duration: 100.8ms | Allocations: 7201)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 122.3ms | Allocations: 19197)
+Completed 200 OK in 124ms (Views: 116.4ms | ActiveRecord: 6.8ms | Allocations: 19544)
+
+
+Started GET "/todos" for 127.0.0.1 at 2021-01-29 01:12:56 +0530
+Processing by TodosController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering todos/index.html.erb within layouts/application
+  [1m[35m (51.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos" WHERE (due_date < '2021-01-29') AND "todos"."completed" = $1 AND "todos"."completed" = $2[0m  [["completed", false], ["completed", true]]
+  ↳ app/views/todos/_todoitem-section.html.erb:5
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos" WHERE (due_date < '2021-01-29') AND "todos"."completed" = $1[0m  [["completed", false]]
+  ↳ app/views/todos/_todoitem-section.html.erb:5
+  [1m[36mTodo Load (0.8ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE (due_date < '2021-01-29') AND "todos"."completed" = $1[0m  [["completed", false]]
+  ↳ app/views/todos/_todoitem-section.html.erb:10
+  Rendered todos/_todoitem-section.html.erb (Duration: 86.7ms | Allocations: 2365)
+  [1m[35m (33.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos" WHERE (due_date = '2021-01-29') AND "todos"."completed" = $1[0m  [["completed", true]]
+  ↳ app/views/todos/_todoitem-section.html.erb:5
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos" WHERE (due_date = '2021-01-29')[0m
+  ↳ app/views/todos/_todoitem-section.html.erb:5
+  [1m[36mTodo Load (0.8ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE (due_date = '2021-01-29')[0m
+  ↳ app/views/todos/_todoitem-section.html.erb:10
+  Rendered todos/_todoitem-section.html.erb (Duration: 49.2ms | Allocations: 2244)
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos" WHERE (due_date > '2021-01-29') AND "todos"."completed" = $1[0m  [["completed", true]]
+  ↳ app/views/todos/_todoitem-section.html.erb:5
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos" WHERE (due_date > '2021-01-29')[0m
+  ↳ app/views/todos/_todoitem-section.html.erb:5
+  [1m[36mTodo Load (0.7ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE (due_date > '2021-01-29')[0m
+  ↳ app/views/todos/_todoitem-section.html.erb:10
+  Rendered todos/_todoitem-section.html.erb (Duration: 9.9ms | Allocations: 2289)
+  Rendered todos/index.html.erb within layouts/application (Duration: 710.8ms | Allocations: 9248)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 1292.5ms | Allocations: 21241)
+Completed 200 OK in 1344ms (Views: 1294.5ms | ActiveRecord: 402.0ms | Allocations: 21587)
+
+
+Started GET "/todos" for 127.0.0.1 at 2021-01-29 01:13:27 +0530
+Processing by TodosController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering todos/index.html.erb within layouts/application
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos" WHERE (due_date < '2021-01-29') AND "todos"."completed" = $1 AND "todos"."completed" = $2[0m  [["completed", false], ["completed", true]]
+  ↳ app/views/todos/_todoitem-section.html.erb:5
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos" WHERE (due_date < '2021-01-29') AND "todos"."completed" = $1[0m  [["completed", false]]
+  ↳ app/views/todos/_todoitem-section.html.erb:5
+  [1m[36mTodo Load (0.6ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE (due_date < '2021-01-29') AND "todos"."completed" = $1[0m  [["completed", false]]
+  ↳ app/views/todos/_todoitem-section.html.erb:10
+  Rendered todos/_todoitem-section.html.erb (Duration: 9.9ms | Allocations: 2281)
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos" WHERE (due_date = '2021-01-29') AND "todos"."completed" = $1[0m  [["completed", true]]
+  ↳ app/views/todos/_todoitem-section.html.erb:5
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos" WHERE (due_date = '2021-01-29')[0m
+  ↳ app/views/todos/_todoitem-section.html.erb:5
+  [1m[36mTodo Load (0.8ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE (due_date = '2021-01-29')[0m
+  ↳ app/views/todos/_todoitem-section.html.erb:10
+  Rendered todos/_todoitem-section.html.erb (Duration: 13.7ms | Allocations: 2244)
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos" WHERE (due_date > '2021-01-29') AND "todos"."completed" = $1[0m  [["completed", true]]
+  ↳ app/views/todos/_todoitem-section.html.erb:5
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos" WHERE (due_date > '2021-01-29')[0m
+  ↳ app/views/todos/_todoitem-section.html.erb:5
+  [1m[36mTodo Load (1.4ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE (due_date > '2021-01-29')[0m
+  ↳ app/views/todos/_todoitem-section.html.erb:10
+  Rendered todos/_todoitem-section.html.erb (Duration: 14.8ms | Allocations: 2289)
+  Rendered todos/index.html.erb within layouts/application (Duration: 40.8ms | Allocations: 7184)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 65.6ms | Allocations: 19176)
+Completed 200 OK in 67ms (Views: 57.7ms | ActiveRecord: 8.6ms | Allocations: 19519)
+
+
+Started GET "/todos" for 127.0.0.1 at 2021-01-29 01:13:30 +0530
+Processing by TodosController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering todos/index.html.erb within layouts/application
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos" WHERE (due_date < '2021-01-29') AND "todos"."completed" = $1 AND "todos"."completed" = $2[0m  [["completed", false], ["completed", true]]
+  ↳ app/views/todos/_todoitem-section.html.erb:5
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos" WHERE (due_date < '2021-01-29') AND "todos"."completed" = $1[0m  [["completed", false]]
+  ↳ app/views/todos/_todoitem-section.html.erb:5
+  [1m[36mTodo Load (0.9ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE (due_date < '2021-01-29') AND "todos"."completed" = $1[0m  [["completed", false]]
+  ↳ app/views/todos/_todoitem-section.html.erb:10
+  Rendered todos/_todoitem-section.html.erb (Duration: 15.7ms | Allocations: 2281)
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos" WHERE (due_date = '2021-01-29') AND "todos"."completed" = $1[0m  [["completed", true]]
+  ↳ app/views/todos/_todoitem-section.html.erb:5
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos" WHERE (due_date = '2021-01-29')[0m
+  ↳ app/views/todos/_todoitem-section.html.erb:5
+  [1m[36mTodo Load (0.8ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE (due_date = '2021-01-29')[0m
+  ↳ app/views/todos/_todoitem-section.html.erb:10
+  Rendered todos/_todoitem-section.html.erb (Duration: 96.4ms | Allocations: 2244)
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos" WHERE (due_date > '2021-01-29') AND "todos"."completed" = $1[0m  [["completed", true]]
+  ↳ app/views/todos/_todoitem-section.html.erb:5
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos" WHERE (due_date > '2021-01-29')[0m
+  ↳ app/views/todos/_todoitem-section.html.erb:5
+  [1m[36mTodo Load (0.8ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE (due_date > '2021-01-29')[0m
+  ↳ app/views/todos/_todoitem-section.html.erb:10
+  Rendered todos/_todoitem-section.html.erb (Duration: 12.9ms | Allocations: 2289)
+  Rendered todos/index.html.erb within layouts/application (Duration: 128.5ms | Allocations: 7184)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 134.0ms | Allocations: 10766)
+Completed 200 OK in 136ms (Views: 127.1ms | ActiveRecord: 7.8ms | Allocations: 11110)
+
+
+Started GET "/todos" for 127.0.0.1 at 2021-01-29 01:15:05 +0530
+Processing by TodosController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering todos/index.html.erb within layouts/application
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos" WHERE (due_date < '2021-01-29') AND "todos"."completed" = $1 AND "todos"."completed" = $2[0m  [["completed", false], ["completed", true]]
+  ↳ app/views/todos/_todoitem-section.html.erb:5
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos" WHERE (due_date < '2021-01-29') AND "todos"."completed" = $1[0m  [["completed", false]]
+  ↳ app/views/todos/_todoitem-section.html.erb:5
+  [1m[36mTodo Load (0.5ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE (due_date < '2021-01-29') AND "todos"."completed" = $1[0m  [["completed", false]]
+  ↳ app/views/todos/_todoitem-section.html.erb:10
+  Rendered todos/_todoitem-section.html.erb (Duration: 12.1ms | Allocations: 2281)
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos" WHERE (due_date = '2021-01-29') AND "todos"."completed" = $1[0m  [["completed", true]]
+  ↳ app/views/todos/_todoitem-section.html.erb:5
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos" WHERE (due_date = '2021-01-29')[0m
+  ↳ app/views/todos/_todoitem-section.html.erb:5
+  [1m[36mTodo Load (0.6ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE (due_date = '2021-01-29')[0m
+  ↳ app/views/todos/_todoitem-section.html.erb:10
+  Rendered todos/_todoitem-section.html.erb (Duration: 10.8ms | Allocations: 2244)
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos" WHERE (due_date > '2021-01-29') AND "todos"."completed" = $1[0m  [["completed", true]]
+  ↳ app/views/todos/_todoitem-section.html.erb:5
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos" WHERE (due_date > '2021-01-29')[0m
+  ↳ app/views/todos/_todoitem-section.html.erb:5
+  [1m[36mTodo Load (0.8ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE (due_date > '2021-01-29')[0m
+  ↳ app/views/todos/_todoitem-section.html.erb:10
+  Rendered todos/_todoitem-section.html.erb (Duration: 11.1ms | Allocations: 2289)
+  Rendered todos/index.html.erb within layouts/application (Duration: 36.3ms | Allocations: 7184)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 41.2ms | Allocations: 10765)
+Completed 200 OK in 43ms (Views: 34.8ms | ActiveRecord: 7.2ms | Allocations: 11108)
+
+

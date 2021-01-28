@@ -24,4 +24,5 @@ class Todo < ActiveRecord::Base
     def self.not_completed
         all.where(completed: false)
     end
+    
 end

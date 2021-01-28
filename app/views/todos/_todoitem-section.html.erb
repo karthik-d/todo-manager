@@ -11,7 +11,7 @@
             <li class="TodoItemContent__item">
                 <label class="TodoItemContent__itemBlock">
 
-                    <input class="TodoItemContent__checkbox" type="checkbox" />
+                    <input class="TodoItemContent__checkbox" type="checkbox" <%= todo.completed ? "checked" : "" %> />
                     <p class="TodoItemContent__task"> <%= todo.todo_text %> </p>
                     <% if display_date %>
                         <p class="TodoItemContent__duedate"> <%= todo.due_date.to_s(:short) %> </p>
