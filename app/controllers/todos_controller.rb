@@ -29,11 +29,10 @@ class TodosController < ApplicationController
       completed = params[:completed]
       modify_todo.completed = completed
       modify_todo.save!
-      response_text = "Todo marked as #{completed.downcase=="true" ? 'complete' : 'pending'}"
+      response_text = "Todo marked as #{completed.downcase == "true" ? "complete" : "pending"}"
     else
       response_text = "Todo Not Found"
     end
     render plain: response_text
   end
-
 end
