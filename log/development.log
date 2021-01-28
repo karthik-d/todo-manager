@@ -1085,3 +1085,11 @@ Processing by TodosController#show as HTML
 Completed 200 OK in 6ms (Views: 0.9ms | ActiveRecord: 0.4ms | Allocations: 841)
 
 
+Started GET "/" for 127.0.0.1 at 2021-01-28 01:42:57 +0530
+  [1m[35m (27.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/decay/.rvm/gems/ruby-2.6.3/gems/railties-6.1.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/decay/.rvm/gems/ruby-2.6.3/gems/railties-6.1.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 30.1ms | Allocations: 354)
+Completed 200 OK in 142ms (Views: 34.8ms | ActiveRecord: 0.0ms | Allocations: 2623)
+
+
