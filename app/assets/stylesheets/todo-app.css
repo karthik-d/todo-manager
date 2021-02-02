@@ -95,7 +95,7 @@ body {
     height: 16px;
 }
 
-.TodoItemContent__checkbox:checked~.TodoItemContent__task {
+.TodoItemContent__checkbox {
     font-size: 14px;
     color: #453C52;
     line-height: 1.4;
@@ -132,4 +132,8 @@ body {
 
 .TodoItemContent__itemBlock:hover .TodoItemContent__deleteAnchor {
     visibility: visible;
+}
+
+.strikeTextCotent {
+    text-decoration:line-through;
 }

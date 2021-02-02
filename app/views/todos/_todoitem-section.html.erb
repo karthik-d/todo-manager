@@ -11,13 +11,21 @@
             <li class="TodoItemContent__item">
                 <label class="TodoItemContent__itemBlock">
 
-                    <input class="TodoItemContent__checkbox" type="checkbox" <%= todo.completed ? "checked" : "" %> />
-                    <p class="TodoItemContent__task"> <%= todo.todo_text %> </p>
+                    <%= form_with(url: "/todos/#{todo.id}", method: "PUT", class: "TodoItemContent__checkboxForm") do %>
+                        <%= check_box_tag("completed",
+                                            nil,
+                                            todo.completed,
+                                            class: "TodoItemContent__checkbox",
+                                            onclick: "this.form.submit()") %>
+                    <% end %>
+                    <p class="TodoItemContent__task <%= todo.completed ? "strikeTextCotent" : "" %>" > <%= todo.todo_text %> </p>
                     <% if display_date %>
                         <p class="TodoItemContent__duedate"> <%= todo.due_date.to_s(:short) %> </p>
                     <% end %>
                     <a class="TodoItemContent__deleteAnchor" href="javascript:void(0)">
-                        <img class="TodoItemContent__deleteIcon" src="trash-can-outline.png" />
+                        <%= form_with(url: "/todos/#{todo.id}", method: "DELETE", class: "TodoItemContent__deleteForm") do %>
+                            <%= image_submit_tag("trash-can-outline.png", class: "TodoItemContent__deleteIcon") %>
+                        <% end %>
                     </a>
 
                 </label>

@@ -2,11 +2,11 @@
 
     <h1 class="TodoPage__title">My To-do List</h1>
 
-    <section class="TodoAdd">
-        <input class="TodoAdd__text" type="text" placeholder="What's next?" />
-        <input class="TodoAdd__date" type="date" />
-        <input class="TodoAdd__button" type="button" value="Add" />
-    </section>
+    <%= form_with(url: "/todos", method: "POST", class: "TodoAdd") do %>
+        <%= text_field_tag("todo_text", nil, class: "TodoAdd__text", placeholder: "What's next?") %>
+        <%= date_field_tag("due_date", nil, class: "TodoAdd__date") %>
+        <%= submit_tag("Add", class: "TodoAdd__button") %>
+    <% end %>
 
     <%= render partial: "todoitem-section", locals: {
         section_head: "Overdue",
