@@ -1,4 +1,5 @@
 class Todo < ActiveRecord::Base
+    belongs_to :user
 
     def to_pleasant_string
         checkbox = completed ? "[X]" : "[ ]"
@@ -24,5 +25,5 @@ class Todo < ActiveRecord::Base
     def self.not_completed
         all.where(completed: false)
     end
-    
+
 end
