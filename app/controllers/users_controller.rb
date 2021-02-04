@@ -1,25 +1,29 @@
 class UsersController < ApplicationController
-  skip_before_action :verify_authenticity_token
-
   def index
-    render plain: User.order(:name).
+    render plain: User.order(:firstname).
              map(&:to_pleasant_string).
              join("\n")
   end
 
   def show
-      user = User.find_by(id: params[:id])
-      render plain: (user ? user.to_pleasant_string : "User Not Found")
+    user = User.find_by(id: params[:id])
+    render plain: (user ? user.to_pleasant_string : "User Not Found")
+  end
+
+  def new
+    # GET /users/new
+    render "new"
   end
 
   def create
-    new_user = User.create(
-      name: params[:name],
+    # POST /users
+    user = User.create!(
+      firstname: params[:firstname],
+      lastname: params[:lastname],
       email: params[:email],
       password: params[:password],
     )
-    response_text = "User '#{new_user.name}' created with ID: #{new_user.id}"
-    render plain: response_text
+    redirect_to "/"
   end
 
   def login

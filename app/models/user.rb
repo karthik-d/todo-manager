@@ -1,7 +1,8 @@
 class User < ApplicationRecord
+    has_secure_password(:password)
     has_many :todo
 
     def to_pleasant_string
-        "#{id}. #{name.ljust(10)} #{email.ljust(20)}"
+        "#{id}. #{firstname.ljust(10)} #{email}"
     end
 end

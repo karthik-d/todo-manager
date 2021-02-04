@@ -11,7 +11,7 @@
             <li class="TodoItemContent__item">
                 <label class="TodoItemContent__itemBlock">
 
-                    <%= form_with(url: "/todos/#{todo.id}", method: "PUT", class: "TodoItemContent__checkboxForm") do %>
+                    <%= form_with(url: "/todos/#{todo.id}", method: "PUT", class: "TodoItemContent__checkboxForm") doi %>
                         <%= check_box_tag("completed",
                                             nil,
                                             todo.completed,
