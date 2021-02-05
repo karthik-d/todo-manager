@@ -11,6 +11,12 @@
   </head>
 
   <body>
+
+    <section class="App__header">
+        <p class="App__userText"> Hey there, <%= current_user ? current_user.firstname : "Guest User" %> </p>
+        <hr />
+    </section>
+
     <%= yield %>
   </body>
 </html>

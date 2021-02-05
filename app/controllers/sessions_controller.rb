@@ -1,4 +1,6 @@
 class SessionsController < ApplicationController
+    # Has guest access
+    skip_before_action :require_login
 
     def new
         render "new"
@@ -7,9 +9,9 @@ class SessionsController < ApplicationController
     def create
         user = User.find_by(email: params[:email])
         if(user && user.authenticate(params[:password]))
-            @current_user = user
+            session[:current_user_id] = user.id
         end
-        redirect_to root_path
+        redirect_to todos_path
     end
 
 end

@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+    # Has guest access
+    skip_before_action :require_login
 
   def index
     # GET /users
@@ -28,12 +30,4 @@ class UsersController < ApplicationController
     redirect_to root_path
   end
 
-  def login
-    user = User.find_by(
-      email: params[:email],
-      password: params[:password],
-    )
-    response_text = (user ? "true" : "false")
-    render plain: response_text
-  end
 end
