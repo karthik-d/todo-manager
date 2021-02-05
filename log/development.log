@@ -20732,3 +20732,909 @@ Processing by TodosController#index as HTML
 Completed 200 OK in 33ms (Views: 22.9ms | ActiveRecord: 7.0ms | Allocations: 12289)
 
 
+Started DELETE "/logout" for 127.0.0.1 at 2021-02-06 03:29:17 +0530
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 337)
+
+
+Started GET "/" for 127.0.0.1 at 2021-02-06 03:29:17 +0530
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.3ms | Allocations: 101)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 6.9ms | Allocations: 3852)
+Completed 200 OK in 9ms (Views: 8.2ms | ActiveRecord: 0.0ms | Allocations: 4398)
+
+
+Started GET "/login" for 127.0.0.1 at 2021-02-06 03:29:19 +0530
+Processing by SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 1.9ms | Allocations: 1976)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 7.4ms | Allocations: 5660)
+Completed 200 OK in 9ms (Views: 8.3ms | ActiveRecord: 0.0ms | Allocations: 6155)
+
+
+Started POST "/login" for 127.0.0.1 at 2021-02-06 03:29:35 +0530
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "email"=>"first@g.c", "password"=>"[FILTERED]", "commit"=>"Sign In"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "first@g.c"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:10:in `create'
+Redirected to http://localhost:3000/todos
+Completed 302 Found in 279ms (ActiveRecord: 4.6ms | Allocations: 5702)
+
+
+Started GET "/todos" for 127.0.0.1 at 2021-02-06 03:29:35 +0530
+Processing by TodosController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:18:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering todos/index.html.erb within layouts/application
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos" WHERE "todos"."user_id" = $1 AND (due_date < '2021-02-06') AND "todos"."completed" = $2 AND "todos"."completed" = $3[0m  [["user_id", 13], ["completed", false], ["completed", true]]
+  ↳ app/views/todos/_todoitem-section.html.erb:5
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos" WHERE "todos"."user_id" = $1 AND (due_date < '2021-02-06') AND "todos"."completed" = $2[0m  [["user_id", 13], ["completed", false]]
+  ↳ app/views/todos/_todoitem-section.html.erb:5
+  [1m[36mTodo Load (0.6ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = $1 AND (due_date < '2021-02-06') AND "todos"."completed" = $2[0m  [["user_id", 13], ["completed", false]]
+  ↳ app/views/todos/_todoitem-section.html.erb:10
+  Rendered todos/_todoitem-section.html.erb (Duration: 16.1ms | Allocations: 6834)
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos" WHERE "todos"."user_id" = $1 AND (due_date = '2021-02-06') AND "todos"."completed" = $2[0m  [["user_id", 13], ["completed", true]]
+  ↳ app/views/todos/_todoitem-section.html.erb:5
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos" WHERE "todos"."user_id" = $1 AND (due_date = '2021-02-06')[0m  [["user_id", 13]]
+  ↳ app/views/todos/_todoitem-section.html.erb:5
+  [1m[36mTodo Load (0.4ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = $1 AND (due_date = '2021-02-06')[0m  [["user_id", 13]]
+  ↳ app/views/todos/_todoitem-section.html.erb:10
+  Rendered todos/_todoitem-section.html.erb (Duration: 7.1ms | Allocations: 2765)
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos" WHERE "todos"."user_id" = $1 AND (due_date > '2021-02-06') AND "todos"."completed" = $2[0m  [["user_id", 13], ["completed", true]]
+  ↳ app/views/todos/_todoitem-section.html.erb:5
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos" WHERE "todos"."user_id" = $1 AND (due_date > '2021-02-06')[0m  [["user_id", 13]]
+  ↳ app/views/todos/_todoitem-section.html.erb:5
+  [1m[36mTodo Load (0.6ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = $1 AND (due_date > '2021-02-06')[0m  [["user_id", 13]]
+  ↳ app/views/todos/_todoitem-section.html.erb:10
+  Rendered todos/_todoitem-section.html.erb (Duration: 7.0ms | Allocations: 2775)
+  Rendered todos/index.html.erb within layouts/application (Duration: 36.4ms | Allocations: 13675)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 40.6ms | Allocations: 17328)
+Completed 200 OK in 49ms (Views: 33.1ms | ActiveRecord: 9.2ms | Allocations: 19527)
+
+
+Started PUT "/todos/19" for 127.0.0.1 at 2021-02-06 03:29:41 +0530
+Processing by TodosController#update as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "completed"=>"on", "id"=>"19"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:18:in `current_user'
+  [1m[36mTodo Load (0.3ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = $1 AND "todos"."id" = $2 LIMIT $3[0m  [["user_id", 13], ["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/todos_controller.rb:29:in `update'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/todos_controller.rb:32:in `update'
+  [1m[36mTodo Update (0.5ms)[0m  [1m[33mUPDATE "todos" SET "completed" = $1, "updated_at" = $2 WHERE "todos"."id" = $3[0m  [["completed", true], ["updated_at", "2021-02-05 21:59:41.479589"], ["id", 19]]
+  ↳ app/controllers/todos_controller.rb:32:in `update'
+  [1m[36mTRANSACTION (52.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/todos_controller.rb:32:in `update'
+Redirected to http://localhost:3000/todos
+Completed 302 Found in 67ms (ActiveRecord: 53.7ms | Allocations: 3847)
+
+
+Started GET "/todos" for 127.0.0.1 at 2021-02-06 03:29:41 +0530
+Processing by TodosController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:18:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering todos/index.html.erb within layouts/application
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos" WHERE "todos"."user_id" = $1 AND (due_date < '2021-02-06') AND "todos"."completed" = $2 AND "todos"."completed" = $3[0m  [["user_id", 13], ["completed", false], ["completed", true]]
+  ↳ app/views/todos/_todoitem-section.html.erb:5
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos" WHERE "todos"."user_id" = $1 AND (due_date < '2021-02-06') AND "todos"."completed" = $2[0m  [["user_id", 13], ["completed", false]]
+  ↳ app/views/todos/_todoitem-section.html.erb:5
+  [1m[36mTodo Load (0.7ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = $1 AND (due_date < '2021-02-06') AND "todos"."completed" = $2[0m  [["user_id", 13], ["completed", false]]
+  ↳ app/views/todos/_todoitem-section.html.erb:10
+  Rendered todos/_todoitem-section.html.erb (Duration: 9.7ms | Allocations: 3096)
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos" WHERE "todos"."user_id" = $1 AND (due_date = '2021-02-06') AND "todos"."completed" = $2[0m  [["user_id", 13], ["completed", true]]
+  ↳ app/views/todos/_todoitem-section.html.erb:5
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos" WHERE "todos"."user_id" = $1 AND (due_date = '2021-02-06')[0m  [["user_id", 13]]
+  ↳ app/views/todos/_todoitem-section.html.erb:5
+  [1m[36mTodo Load (0.4ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = $1 AND (due_date = '2021-02-06')[0m  [["user_id", 13]]
+  ↳ app/views/todos/_todoitem-section.html.erb:10
+  Rendered todos/_todoitem-section.html.erb (Duration: 7.5ms | Allocations: 2764)
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos" WHERE "todos"."user_id" = $1 AND (due_date > '2021-02-06') AND "todos"."completed" = $2[0m  [["user_id", 13], ["completed", true]]
+  ↳ app/views/todos/_todoitem-section.html.erb:5
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos" WHERE "todos"."user_id" = $1 AND (due_date > '2021-02-06')[0m  [["user_id", 13]]
+  ↳ app/views/todos/_todoitem-section.html.erb:5
+  [1m[36mTodo Load (0.4ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = $1 AND (due_date > '2021-02-06')[0m  [["user_id", 13]]
+  ↳ app/views/todos/_todoitem-section.html.erb:10
+  Rendered todos/_todoitem-section.html.erb (Duration: 7.4ms | Allocations: 2774)
+  Rendered todos/index.html.erb within layouts/application (Duration: 26.2ms | Allocations: 9292)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 30.6ms | Allocations: 13034)
+Completed 200 OK in 34ms (Views: 26.0ms | ActiveRecord: 5.3ms | Allocations: 14021)
+
+
+Started PUT "/todos/19" for 127.0.0.1 at 2021-02-06 03:29:42 +0530
+Processing by TodosController#update as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "id"=>"19"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:18:in `current_user'
+  [1m[36mTodo Load (0.4ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = $1 AND "todos"."id" = $2 LIMIT $3[0m  [["user_id", 13], ["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/todos_controller.rb:29:in `update'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/todos_controller.rb:32:in `update'
+  [1m[36mTodo Update (0.4ms)[0m  [1m[33mUPDATE "todos" SET "completed" = $1, "updated_at" = $2 WHERE "todos"."id" = $3[0m  [["completed", nil], ["updated_at", "2021-02-05 21:59:42.724948"], ["id", 19]]
+  ↳ app/controllers/todos_controller.rb:32:in `update'
+  [1m[36mTRANSACTION (65.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/todos_controller.rb:32:in `update'
+Redirected to http://localhost:3000/todos
+Completed 302 Found in 78ms (ActiveRecord: 67.2ms | Allocations: 3771)
+
+
+Started GET "/todos" for 127.0.0.1 at 2021-02-06 03:29:42 +0530
+Processing by TodosController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:18:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering todos/index.html.erb within layouts/application
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos" WHERE "todos"."user_id" = $1 AND (due_date < '2021-02-06') AND "todos"."completed" = $2 AND "todos"."completed" = $3[0m  [["user_id", 13], ["completed", false], ["completed", true]]
+  ↳ app/views/todos/_todoitem-section.html.erb:5
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos" WHERE "todos"."user_id" = $1 AND (due_date < '2021-02-06') AND "todos"."completed" = $2[0m  [["user_id", 13], ["completed", false]]
+  ↳ app/views/todos/_todoitem-section.html.erb:5
+  [1m[36mTodo Load (0.4ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = $1 AND (due_date < '2021-02-06') AND "todos"."completed" = $2[0m  [["user_id", 13], ["completed", false]]
+  ↳ app/views/todos/_todoitem-section.html.erb:10
+  Rendered todos/_todoitem-section.html.erb (Duration: 9.0ms | Allocations: 3095)
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos" WHERE "todos"."user_id" = $1 AND (due_date = '2021-02-06') AND "todos"."completed" = $2[0m  [["user_id", 13], ["completed", true]]
+  ↳ app/views/todos/_todoitem-section.html.erb:5
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos" WHERE "todos"."user_id" = $1 AND (due_date = '2021-02-06')[0m  [["user_id", 13]]
+  ↳ app/views/todos/_todoitem-section.html.erb:5
+  [1m[36mTodo Load (0.7ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = $1 AND (due_date = '2021-02-06')[0m  [["user_id", 13]]
+  ↳ app/views/todos/_todoitem-section.html.erb:10
+  Rendered todos/_todoitem-section.html.erb (Duration: 8.2ms | Allocations: 2764)
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos" WHERE "todos"."user_id" = $1 AND (due_date > '2021-02-06') AND "todos"."completed" = $2[0m  [["user_id", 13], ["completed", true]]
+  ↳ app/views/todos/_todoitem-section.html.erb:5
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos" WHERE "todos"."user_id" = $1 AND (due_date > '2021-02-06')[0m  [["user_id", 13]]
+  ↳ app/views/todos/_todoitem-section.html.erb:5
+  [1m[36mTodo Load (0.5ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = $1 AND (due_date > '2021-02-06')[0m  [["user_id", 13]]
+  ↳ app/views/todos/_todoitem-section.html.erb:10
+  Rendered todos/_todoitem-section.html.erb (Duration: 9.4ms | Allocations: 2774)
+  Rendered todos/index.html.erb within layouts/application (Duration: 28.6ms | Allocations: 9287)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 34.1ms | Allocations: 13030)
+Completed 200 OK in 39ms (Views: 29.6ms | ActiveRecord: 5.9ms | Allocations: 14016)
+
+
+Started PUT "/todos/18" for 127.0.0.1 at 2021-02-06 03:29:45 +0530
+Processing by TodosController#update as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "completed"=>"on", "id"=>"18"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:18:in `current_user'
+  [1m[36mTodo Load (0.4ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = $1 AND "todos"."id" = $2 LIMIT $3[0m  [["user_id", 13], ["id", 18], ["LIMIT", 1]]
+  ↳ app/controllers/todos_controller.rb:29:in `update'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/todos_controller.rb:32:in `update'
+  [1m[36mTodo Update (0.7ms)[0m  [1m[33mUPDATE "todos" SET "completed" = $1, "updated_at" = $2 WHERE "todos"."id" = $3[0m  [["completed", true], ["updated_at", "2021-02-05 21:59:45.232460"], ["id", 18]]
+  ↳ app/controllers/todos_controller.rb:32:in `update'
+  [1m[36mTRANSACTION (64.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/todos_controller.rb:32:in `update'
+Redirected to http://localhost:3000/todos
+Completed 302 Found in 81ms (ActiveRecord: 66.1ms | Allocations: 3767)
+
+
+Started GET "/todos" for 127.0.0.1 at 2021-02-06 03:29:45 +0530
+Processing by TodosController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:18:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering todos/index.html.erb within layouts/application
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos" WHERE "todos"."user_id" = $1 AND (due_date < '2021-02-06') AND "todos"."completed" = $2 AND "todos"."completed" = $3[0m  [["user_id", 13], ["completed", false], ["completed", true]]
+  ↳ app/views/todos/_todoitem-section.html.erb:5
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos" WHERE "todos"."user_id" = $1 AND (due_date < '2021-02-06') AND "todos"."completed" = $2[0m  [["user_id", 13], ["completed", false]]
+  ↳ app/views/todos/_todoitem-section.html.erb:5
+  [1m[36mTodo Load (0.6ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = $1 AND (due_date < '2021-02-06') AND "todos"."completed" = $2[0m  [["user_id", 13], ["completed", false]]
+  ↳ app/views/todos/_todoitem-section.html.erb:10
+  Rendered todos/_todoitem-section.html.erb (Duration: 8.9ms | Allocations: 3095)
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos" WHERE "todos"."user_id" = $1 AND (due_date = '2021-02-06') AND "todos"."completed" = $2[0m  [["user_id", 13], ["completed", true]]
+  ↳ app/views/todos/_todoitem-section.html.erb:5
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos" WHERE "todos"."user_id" = $1 AND (due_date = '2021-02-06')[0m  [["user_id", 13]]
+  ↳ app/views/todos/_todoitem-section.html.erb:5
+  [1m[36mTodo Load (0.7ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = $1 AND (due_date = '2021-02-06')[0m  [["user_id", 13]]
+  ↳ app/views/todos/_todoitem-section.html.erb:10
+  Rendered todos/_todoitem-section.html.erb (Duration: 7.8ms | Allocations: 2764)
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos" WHERE "todos"."user_id" = $1 AND (due_date > '2021-02-06') AND "todos"."completed" = $2[0m  [["user_id", 13], ["completed", true]]
+  ↳ app/views/todos/_todoitem-section.html.erb:5
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos" WHERE "todos"."user_id" = $1 AND (due_date > '2021-02-06')[0m  [["user_id", 13]]
+  ↳ app/views/todos/_todoitem-section.html.erb:5
+  [1m[36mTodo Load (0.6ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = $1 AND (due_date > '2021-02-06')[0m  [["user_id", 13]]
+  ↳ app/views/todos/_todoitem-section.html.erb:10
+  Rendered todos/_todoitem-section.html.erb (Duration: 8.5ms | Allocations: 2774)
+  Rendered todos/index.html.erb within layouts/application (Duration: 27.1ms | Allocations: 9287)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 31.3ms | Allocations: 13029)
+Completed 200 OK in 35ms (Views: 25.1ms | ActiveRecord: 7.1ms | Allocations: 14015)
+
+
+Started PUT "/todos/18" for 127.0.0.1 at 2021-02-06 03:29:45 +0530
+Processing by TodosController#update as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "id"=>"18"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:18:in `current_user'
+  [1m[36mTodo Load (0.4ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = $1 AND "todos"."id" = $2 LIMIT $3[0m  [["user_id", 13], ["id", 18], ["LIMIT", 1]]
+  ↳ app/controllers/todos_controller.rb:29:in `update'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/todos_controller.rb:32:in `update'
+  [1m[36mTodo Update (0.6ms)[0m  [1m[33mUPDATE "todos" SET "completed" = $1, "updated_at" = $2 WHERE "todos"."id" = $3[0m  [["completed", nil], ["updated_at", "2021-02-05 21:59:45.912333"], ["id", 18]]
+  ↳ app/controllers/todos_controller.rb:32:in `update'
+  [1m[36mTRANSACTION (55.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/todos_controller.rb:32:in `update'
+Redirected to http://localhost:3000/todos
+Completed 302 Found in 77ms (ActiveRecord: 57.4ms | Allocations: 3774)
+
+
+Started GET "/todos" for 127.0.0.1 at 2021-02-06 03:29:45 +0530
+Processing by TodosController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:18:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering todos/index.html.erb within layouts/application
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos" WHERE "todos"."user_id" = $1 AND (due_date < '2021-02-06') AND "todos"."completed" = $2 AND "todos"."completed" = $3[0m  [["user_id", 13], ["completed", false], ["completed", true]]
+  ↳ app/views/todos/_todoitem-section.html.erb:5
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos" WHERE "todos"."user_id" = $1 AND (due_date < '2021-02-06') AND "todos"."completed" = $2[0m  [["user_id", 13], ["completed", false]]
+  ↳ app/views/todos/_todoitem-section.html.erb:5
+  [1m[36mTodo Load (0.5ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = $1 AND (due_date < '2021-02-06') AND "todos"."completed" = $2[0m  [["user_id", 13], ["completed", false]]
+  ↳ app/views/todos/_todoitem-section.html.erb:10
+  Rendered todos/_todoitem-section.html.erb (Duration: 9.6ms | Allocations: 3096)
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos" WHERE "todos"."user_id" = $1 AND (due_date = '2021-02-06') AND "todos"."completed" = $2[0m  [["user_id", 13], ["completed", true]]
+  ↳ app/views/todos/_todoitem-section.html.erb:5
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos" WHERE "todos"."user_id" = $1 AND (due_date = '2021-02-06')[0m  [["user_id", 13]]
+  ↳ app/views/todos/_todoitem-section.html.erb:5
+  [1m[36mTodo Load (0.7ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = $1 AND (due_date = '2021-02-06')[0m  [["user_id", 13]]
+  ↳ app/views/todos/_todoitem-section.html.erb:10
+  Rendered todos/_todoitem-section.html.erb (Duration: 9.5ms | Allocations: 2764)
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos" WHERE "todos"."user_id" = $1 AND (due_date > '2021-02-06') AND "todos"."completed" = $2[0m  [["user_id", 13], ["completed", true]]
+  ↳ app/views/todos/_todoitem-section.html.erb:5
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos" WHERE "todos"."user_id" = $1 AND (due_date > '2021-02-06')[0m  [["user_id", 13]]
+  ↳ app/views/todos/_todoitem-section.html.erb:5
+  [1m[36mTodo Load (0.4ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = $1 AND (due_date > '2021-02-06')[0m  [["user_id", 13]]
+  ↳ app/views/todos/_todoitem-section.html.erb:10
+  Rendered todos/_todoitem-section.html.erb (Duration: 7.0ms | Allocations: 2774)
+  Rendered todos/index.html.erb within layouts/application (Duration: 29.2ms | Allocations: 9288)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 33.3ms | Allocations: 13031)
+Completed 200 OK in 38ms (Views: 28.4ms | ActiveRecord: 6.3ms | Allocations: 14017)
+
+
+Started GET "/todos" for 127.0.0.1 at 2021-02-06 03:29:48 +0530
+Processing by TodosController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:18:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering todos/index.html.erb within layouts/application
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos" WHERE "todos"."user_id" = $1 AND (due_date < '2021-02-06') AND "todos"."completed" = $2 AND "todos"."completed" = $3[0m  [["user_id", 13], ["completed", false], ["completed", true]]
+  ↳ app/views/todos/_todoitem-section.html.erb:5
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos" WHERE "todos"."user_id" = $1 AND (due_date < '2021-02-06') AND "todos"."completed" = $2[0m  [["user_id", 13], ["completed", false]]
+  ↳ app/views/todos/_todoitem-section.html.erb:5
+  [1m[36mTodo Load (0.6ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = $1 AND (due_date < '2021-02-06') AND "todos"."completed" = $2[0m  [["user_id", 13], ["completed", false]]
+  ↳ app/views/todos/_todoitem-section.html.erb:10
+  Rendered todos/_todoitem-section.html.erb (Duration: 11.8ms | Allocations: 3095)
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos" WHERE "todos"."user_id" = $1 AND (due_date = '2021-02-06') AND "todos"."completed" = $2[0m  [["user_id", 13], ["completed", true]]
+  ↳ app/views/todos/_todoitem-section.html.erb:5
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos" WHERE "todos"."user_id" = $1 AND (due_date = '2021-02-06')[0m  [["user_id", 13]]
+  ↳ app/views/todos/_todoitem-section.html.erb:5
+  [1m[36mTodo Load (0.5ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = $1 AND (due_date = '2021-02-06')[0m  [["user_id", 13]]
+  ↳ app/views/todos/_todoitem-section.html.erb:10
+  Rendered todos/_todoitem-section.html.erb (Duration: 8.5ms | Allocations: 2764)
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos" WHERE "todos"."user_id" = $1 AND (due_date > '2021-02-06') AND "todos"."completed" = $2[0m  [["user_id", 13], ["completed", true]]
+  ↳ app/views/todos/_todoitem-section.html.erb:5
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos" WHERE "todos"."user_id" = $1 AND (due_date > '2021-02-06')[0m  [["user_id", 13]]
+  ↳ app/views/todos/_todoitem-section.html.erb:5
+  [1m[36mTodo Load (1.2ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = $1 AND (due_date > '2021-02-06')[0m  [["user_id", 13]]
+  ↳ app/views/todos/_todoitem-section.html.erb:10
+  Rendered todos/_todoitem-section.html.erb (Duration: 9.9ms | Allocations: 2774)
+  Rendered todos/index.html.erb within layouts/application (Duration: 32.5ms | Allocations: 9287)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 37.1ms | Allocations: 13025)
+Completed 200 OK in 42ms (Views: 31.8ms | ActiveRecord: 6.5ms | Allocations: 14002)
+
+
+Started DELETE "/todos/20" for 127.0.0.1 at 2021-02-06 03:29:53 +0530
+Processing by TodosController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "x"=>"12", "y"=>"10", "id"=>"20"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:18:in `current_user'
+  [1m[36mTodo Load (0.5ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = $1 AND "todos"."id" = $2 LIMIT $3[0m  [["user_id", 13], ["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/todos_controller.rb:39:in `destroy'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/todos_controller.rb:41:in `destroy'
+  [1m[36mTodo Destroy (0.6ms)[0m  [1m[31mDELETE FROM "todos" WHERE "todos"."id" = $1[0m  [["id", 20]]
+  ↳ app/controllers/todos_controller.rb:41:in `destroy'
+  [1m[36mTRANSACTION (53.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/todos_controller.rb:41:in `destroy'
+Redirected to http://localhost:3000/todos
+Completed 302 Found in 68ms (ActiveRecord: 55.0ms | Allocations: 3461)
+
+
+Started GET "/todos" for 127.0.0.1 at 2021-02-06 03:29:53 +0530
+Processing by TodosController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:18:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering todos/index.html.erb within layouts/application
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos" WHERE "todos"."user_id" = $1 AND (due_date < '2021-02-06') AND "todos"."completed" = $2 AND "todos"."completed" = $3[0m  [["user_id", 13], ["completed", false], ["completed", true]]
+  ↳ app/views/todos/_todoitem-section.html.erb:5
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos" WHERE "todos"."user_id" = $1 AND (due_date < '2021-02-06') AND "todos"."completed" = $2[0m  [["user_id", 13], ["completed", false]]
+  ↳ app/views/todos/_todoitem-section.html.erb:5
+  [1m[36mTodo Load (0.5ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = $1 AND (due_date < '2021-02-06') AND "todos"."completed" = $2[0m  [["user_id", 13], ["completed", false]]
+  ↳ app/views/todos/_todoitem-section.html.erb:10
+  Rendered todos/_todoitem-section.html.erb (Duration: 7.2ms | Allocations: 2295)
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos" WHERE "todos"."user_id" = $1 AND (due_date = '2021-02-06') AND "todos"."completed" = $2[0m  [["user_id", 13], ["completed", true]]
+  ↳ app/views/todos/_todoitem-section.html.erb:5
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos" WHERE "todos"."user_id" = $1 AND (due_date = '2021-02-06')[0m  [["user_id", 13]]
+  ↳ app/views/todos/_todoitem-section.html.erb:5
+  [1m[36mTodo Load (0.6ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = $1 AND (due_date = '2021-02-06')[0m  [["user_id", 13]]
+  ↳ app/views/todos/_todoitem-section.html.erb:10
+  Rendered todos/_todoitem-section.html.erb (Duration: 9.7ms | Allocations: 3054)
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos" WHERE "todos"."user_id" = $1 AND (due_date > '2021-02-06') AND "todos"."completed" = $2[0m  [["user_id", 13], ["completed", true]]
+  ↳ app/views/todos/_todoitem-section.html.erb:5
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos" WHERE "todos"."user_id" = $1 AND (due_date > '2021-02-06')[0m  [["user_id", 13]]
+  ↳ app/views/todos/_todoitem-section.html.erb:5
+  [1m[36mTodo Load (0.4ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = $1 AND (due_date > '2021-02-06')[0m  [["user_id", 13]]
+  ↳ app/views/todos/_todoitem-section.html.erb:10
+  Rendered todos/_todoitem-section.html.erb (Duration: 7.6ms | Allocations: 2774)
+  Rendered todos/index.html.erb within layouts/application (Duration: 27.0ms | Allocations: 8777)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 31.3ms | Allocations: 12519)
+Completed 200 OK in 37ms (Views: 27.1ms | ActiveRecord: 5.8ms | Allocations: 13505)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2021-02-06 03:29:57 +0530
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 288)
+
+
+Started GET "/" for 127.0.0.1 at 2021-02-06 03:29:57 +0530
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.3ms | Allocations: 94)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 7.0ms | Allocations: 3879)
+Completed 200 OK in 8ms (Views: 7.6ms | ActiveRecord: 0.0ms | Allocations: 4244)
+
+
+Started GET "/" for 127.0.0.1 at 2021-02-06 03:50:28 +0530
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 2.9ms | Allocations: 385)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 26.7ms | Allocations: 8287)
+Completed 200 OK in 53ms (Views: 34.8ms | ActiveRecord: 0.0ms | Allocations: 10998)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2021-02-06 03:50:30 +0530
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (Duration: 4.1ms | Allocations: 4368)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 19.6ms | Allocations: 8054)
+Completed 200 OK in 23ms (Views: 22.1ms | ActiveRecord: 0.0ms | Allocations: 8986)
+
+
+Started POST "/users" for 127.0.0.1 at 2021-02-06 03:50:43 +0530
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "firstname"=>"Intermediate", "lastname"=>"User", "email"=>"intermediate@g.c", "password"=>"[FILTERED]", "commit"=>"Sign Up"}
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:32:in `create'
+  [1m[36mUser Create (0.7ms)[0m  [1m[32mINSERT INTO "users" ("firstname", "email", "password_digest", "created_at", "updated_at", "lastname") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["firstname", "Intermediate"], ["email", "intermediate@g.c"], ["password_digest", "$2a$12$sZYBwSqsJGi7sAg7ky23w.9q7EHWVHwtBrDGP0A.ssgQd3S4JIjZ6"], ["created_at", "2021-02-05 22:20:43.947211"], ["updated_at", "2021-02-05 22:20:43.947211"], ["lastname", "User"]]
+  ↳ app/controllers/users_controller.rb:32:in `create'
+  [1m[36mTRANSACTION (17.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:32:in `create'
+Redirected to http://localhost:3000/todos
+Completed 302 Found in 305ms (ActiveRecord: 22.0ms | Allocations: 8682)
+
+
+Started GET "/todos" for 127.0.0.1 at 2021-02-06 03:50:43 +0530
+Processing by TodosController#index as HTML
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:18:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering todos/index.html.erb within layouts/application
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos" WHERE "todos"."user_id" = $1 AND (due_date < '2021-02-06') AND "todos"."completed" = $2 AND "todos"."completed" = $3[0m  [["user_id", 16], ["completed", false], ["completed", true]]
+  ↳ app/views/todos/_todoitem-section.html.erb:5
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos" WHERE "todos"."user_id" = $1 AND (due_date < '2021-02-06') AND "todos"."completed" = $2[0m  [["user_id", 16], ["completed", false]]
+  ↳ app/views/todos/_todoitem-section.html.erb:5
+  [1m[36mTodo Load (1.0ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = $1 AND (due_date < '2021-02-06') AND "todos"."completed" = $2[0m  [["user_id", 16], ["completed", false]]
+  ↳ app/views/todos/_todoitem-section.html.erb:10
+  Rendered todos/_todoitem-section.html.erb (Duration: 12.8ms | Allocations: 2840)
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos" WHERE "todos"."user_id" = $1 AND (due_date = '2021-02-06') AND "todos"."completed" = $2[0m  [["user_id", 16], ["completed", true]]
+  ↳ app/views/todos/_todoitem-section.html.erb:5
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos" WHERE "todos"."user_id" = $1 AND (due_date = '2021-02-06')[0m  [["user_id", 16]]
+  ↳ app/views/todos/_todoitem-section.html.erb:5
+  [1m[36mTodo Load (0.6ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = $1 AND (due_date = '2021-02-06')[0m  [["user_id", 16]]
+  ↳ app/views/todos/_todoitem-section.html.erb:10
+  Rendered todos/_todoitem-section.html.erb (Duration: 8.1ms | Allocations: 2265)
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos" WHERE "todos"."user_id" = $1 AND (due_date > '2021-02-06') AND "todos"."completed" = $2[0m  [["user_id", 16], ["completed", true]]
+  ↳ app/views/todos/_todoitem-section.html.erb:5
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos" WHERE "todos"."user_id" = $1 AND (due_date > '2021-02-06')[0m  [["user_id", 16]]
+  ↳ app/views/todos/_todoitem-section.html.erb:5
+  [1m[36mTodo Load (0.6ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = $1 AND (due_date > '2021-02-06')[0m  [["user_id", 16]]
+  ↳ app/views/todos/_todoitem-section.html.erb:10
+  Rendered todos/_todoitem-section.html.erb (Duration: 8.2ms | Allocations: 2265)
+  Rendered todos/index.html.erb within layouts/application (Duration: 39.7ms | Allocations: 9636)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 45.5ms | Allocations: 13410)
+Completed 200 OK in 62ms (Views: 37.2ms | ActiveRecord: 12.1ms | Allocations: 17819)
+
+
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+Started GET "/" for 127.0.0.1 at 2021-02-06 03:55:55 +0530
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 2.6ms | Allocations: 385)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:18:in `current_user'
+  Rendered layout layouts/application.html.erb (Duration: 165.2ms | Allocations: 44872)
+Completed 200 OK in 185ms (Views: 163.0ms | ActiveRecord: 9.5ms | Allocations: 47585)
+
+
+Started GET "/login" for 127.0.0.1 at 2021-02-06 03:56:05 +0530
+Processing by SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 3.7ms | Allocations: 2625)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:18:in `current_user'
+  Rendered layout layouts/application.html.erb (Duration: 14.7ms | Allocations: 6996)
+Completed 200 OK in 18ms (Views: 17.1ms | ActiveRecord: 0.4ms | Allocations: 7924)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2021-02-06 03:56:14 +0530
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 314)
+
+
+Started GET "/" for 127.0.0.1 at 2021-02-06 03:56:14 +0530
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.4ms | Allocations: 100)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 8.6ms | Allocations: 3889)
+Completed 200 OK in 10ms (Views: 9.4ms | ActiveRecord: 0.0ms | Allocations: 4257)
+
+
+Started GET "/" for 127.0.0.1 at 2021-02-06 03:59:41 +0530
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.2ms | Allocations: 102)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 5.3ms | Allocations: 3849)
+Completed 200 OK in 7ms (Views: 6.1ms | ActiveRecord: 0.0ms | Allocations: 4391)
+
+
+Started GET "/login" for 127.0.0.1 at 2021-02-06 03:59:43 +0530
+Processing by SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 1.2ms | Allocations: 1938)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 8.1ms | Allocations: 5625)
+Completed 200 OK in 10ms (Views: 9.3ms | ActiveRecord: 0.0ms | Allocations: 6170)
+
+
+Started POST "/login" for 127.0.0.1 at 2021-02-06 03:59:54 +0530
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "email"=>"first@g.c", "password"=>"[FILTERED]", "commit"=>"Sign In"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "first@g.c"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:14:in `create'
+Redirected to http://localhost:3000/todos
+Completed 302 Found in 280ms (ActiveRecord: 4.1ms | Allocations: 5712)
+
+
+Started GET "/todos" for 127.0.0.1 at 2021-02-06 03:59:54 +0530
+Processing by TodosController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:18:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering todos/index.html.erb within layouts/application
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos" WHERE "todos"."user_id" = $1 AND (due_date < '2021-02-06') AND "todos"."completed" = $2 AND "todos"."completed" = $3[0m  [["user_id", 13], ["completed", false], ["completed", true]]
+  ↳ app/views/todos/_todoitem-section.html.erb:5
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos" WHERE "todos"."user_id" = $1 AND (due_date < '2021-02-06') AND "todos"."completed" = $2[0m  [["user_id", 13], ["completed", false]]
+  ↳ app/views/todos/_todoitem-section.html.erb:5
+  [1m[36mTodo Load (0.6ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = $1 AND (due_date < '2021-02-06') AND "todos"."completed" = $2[0m  [["user_id", 13], ["completed", false]]
+  ↳ app/views/todos/_todoitem-section.html.erb:10
+  Rendered todos/_todoitem-section.html.erb (Duration: 9.5ms | Allocations: 2841)
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos" WHERE "todos"."user_id" = $1 AND (due_date = '2021-02-06') AND "todos"."completed" = $2[0m  [["user_id", 13], ["completed", true]]
+  ↳ app/views/todos/_todoitem-section.html.erb:5
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos" WHERE "todos"."user_id" = $1 AND (due_date = '2021-02-06')[0m  [["user_id", 13]]
+  ↳ app/views/todos/_todoitem-section.html.erb:5
+  [1m[36mTodo Load (0.6ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = $1 AND (due_date = '2021-02-06')[0m  [["user_id", 13]]
+  ↳ app/views/todos/_todoitem-section.html.erb:10
+  Rendered todos/_todoitem-section.html.erb (Duration: 17.0ms | Allocations: 7222)
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos" WHERE "todos"."user_id" = $1 AND (due_date > '2021-02-06') AND "todos"."completed" = $2[0m  [["user_id", 13], ["completed", true]]
+  ↳ app/views/todos/_todoitem-section.html.erb:5
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos" WHERE "todos"."user_id" = $1 AND (due_date > '2021-02-06')[0m  [["user_id", 13]]
+  ↳ app/views/todos/_todoitem-section.html.erb:5
+  [1m[36mTodo Load (0.6ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = $1 AND (due_date > '2021-02-06')[0m  [["user_id", 13]]
+  ↳ app/views/todos/_todoitem-section.html.erb:10
+  Rendered todos/_todoitem-section.html.erb (Duration: 7.9ms | Allocations: 2777)
+  Rendered todos/index.html.erb within layouts/application (Duration: 42.8ms | Allocations: 15109)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 48.0ms | Allocations: 18762)
+Completed 200 OK in 56ms (Views: 39.7ms | ActiveRecord: 10.5ms | Allocations: 22798)
+
+
+Started GET "/" for 127.0.0.1 at 2021-02-06 04:00:04 +0530
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.5ms | Allocations: 100)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:18:in `current_user'
+  Rendered layout layouts/application.html.erb (Duration: 10.6ms | Allocations: 4586)
+Completed 200 OK in 12ms (Views: 10.6ms | ActiveRecord: 0.9ms | Allocations: 4947)
+
+
+Started GET "/login" for 127.0.0.1 at 2021-02-06 04:00:06 +0530
+Processing by SessionsController#new as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:18:in `current_user'
+Redirected to http://localhost:3000/todos
+Completed 302 Found in 5ms (ActiveRecord: 0.5ms | Allocations: 839)
+
+
+Started GET "/todos" for 127.0.0.1 at 2021-02-06 04:00:06 +0530
+Processing by TodosController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:18:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering todos/index.html.erb within layouts/application
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos" WHERE "todos"."user_id" = $1 AND (due_date < '2021-02-06') AND "todos"."completed" = $2 AND "todos"."completed" = $3[0m  [["user_id", 13], ["completed", false], ["completed", true]]
+  ↳ app/views/todos/_todoitem-section.html.erb:5
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos" WHERE "todos"."user_id" = $1 AND (due_date < '2021-02-06') AND "todos"."completed" = $2[0m  [["user_id", 13], ["completed", false]]
+  ↳ app/views/todos/_todoitem-section.html.erb:5
+  [1m[36mTodo Load (0.4ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = $1 AND (due_date < '2021-02-06') AND "todos"."completed" = $2[0m  [["user_id", 13], ["completed", false]]
+  ↳ app/views/todos/_todoitem-section.html.erb:10
+  Rendered todos/_todoitem-section.html.erb (Duration: 6.5ms | Allocations: 2296)
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos" WHERE "todos"."user_id" = $1 AND (due_date = '2021-02-06') AND "todos"."completed" = $2[0m  [["user_id", 13], ["completed", true]]
+  ↳ app/views/todos/_todoitem-section.html.erb:5
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos" WHERE "todos"."user_id" = $1 AND (due_date = '2021-02-06')[0m  [["user_id", 13]]
+  ↳ app/views/todos/_todoitem-section.html.erb:5
+  [1m[36mTodo Load (1.0ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = $1 AND (due_date = '2021-02-06')[0m  [["user_id", 13]]
+  ↳ app/views/todos/_todoitem-section.html.erb:10
+  Rendered todos/_todoitem-section.html.erb (Duration: 10.9ms | Allocations: 3054)
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos" WHERE "todos"."user_id" = $1 AND (due_date > '2021-02-06') AND "todos"."completed" = $2[0m  [["user_id", 13], ["completed", true]]
+  ↳ app/views/todos/_todoitem-section.html.erb:5
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos" WHERE "todos"."user_id" = $1 AND (due_date > '2021-02-06')[0m  [["user_id", 13]]
+  ↳ app/views/todos/_todoitem-section.html.erb:5
+  [1m[36mTodo Load (0.4ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = $1 AND (due_date > '2021-02-06')[0m  [["user_id", 13]]
+  ↳ app/views/todos/_todoitem-section.html.erb:10
+  Rendered todos/_todoitem-section.html.erb (Duration: 9.5ms | Allocations: 2774)
+  Rendered todos/index.html.erb within layouts/application (Duration: 29.1ms | Allocations: 8784)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 35.7ms | Allocations: 12522)
+Completed 200 OK in 41ms (Views: 31.3ms | ActiveRecord: 5.6ms | Allocations: 13510)
+
+
+Started GET "/" for 127.0.0.1 at 2021-02-06 04:00:46 +0530
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.3ms | Allocations: 102)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:18:in `current_user'
+  Rendered layout layouts/application.html.erb (Duration: 22.8ms | Allocations: 9332)
+Completed 200 OK in 24ms (Views: 17.9ms | ActiveRecord: 5.8ms | Allocations: 9875)
+
+
+Started GET "/login" for 127.0.0.1 at 2021-02-06 04:00:48 +0530
+Processing by SessionsController#new as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:18:in `current_user'
+Redirected to http://localhost:3000/
+Completed 302 Found in 5ms (ActiveRecord: 0.5ms | Allocations: 867)
+
+
+Started GET "/" for 127.0.0.1 at 2021-02-06 04:00:48 +0530
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.2ms | Allocations: 94)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:18:in `current_user'
+  Rendered layout layouts/application.html.erb (Duration: 7.1ms | Allocations: 4559)
+Completed 200 OK in 8ms (Views: 7.4ms | ActiveRecord: 0.3ms | Allocations: 4925)
+
+
+Started GET "/" for 127.0.0.1 at 2021-02-06 04:04:38 +0530
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:18:in `current_user'
+  Rendered home/index.html.erb within layouts/application (Duration: 2.9ms | Allocations: 974)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 11.3ms | Allocations: 5243)
+Completed 200 OK in 15ms (Views: 13.9ms | ActiveRecord: 0.2ms | Allocations: 6358)
+
+
+Started GET "/" for 127.0.0.1 at 2021-02-06 04:04:57 +0530
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:18:in `current_user'
+  Rendered home/index.html.erb within layouts/application (Duration: 3.4ms | Allocations: 959)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 9.9ms | Allocations: 5228)
+Completed 200 OK in 14ms (Views: 12.9ms | ActiveRecord: 0.4ms | Allocations: 6324)
+
+
+Started GET "/" for 127.0.0.1 at 2021-02-06 04:04:58 +0530
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:18:in `current_user'
+  Rendered home/index.html.erb within layouts/application (Duration: 4.7ms | Allocations: 738)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 11.9ms | Allocations: 4548)
+Completed 200 OK in 14ms (Views: 12.4ms | ActiveRecord: 0.5ms | Allocations: 4906)
+
+
+Started GET "/" for 127.0.0.1 at 2021-02-06 04:04:58 +0530
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:18:in `current_user'
+  Rendered home/index.html.erb within layouts/application (Duration: 4.1ms | Allocations: 737)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 11.5ms | Allocations: 4547)
+Completed 200 OK in 13ms (Views: 12.1ms | ActiveRecord: 0.4ms | Allocations: 4904)
+
+
+Started GET "/" for 127.0.0.1 at 2021-02-06 04:04:58 +0530
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:18:in `current_user'
+  Rendered home/index.html.erb within layouts/application (Duration: 3.1ms | Allocations: 1147)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 8.7ms | Allocations: 4957)
+Completed 200 OK in 10ms (Views: 8.6ms | ActiveRecord: 0.7ms | Allocations: 5314)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2021-02-06 04:05:04 +0530
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 288)
+
+
+Started GET "/" for 127.0.0.1 at 2021-02-06 04:05:04 +0530
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 1.1ms | Allocations: 329)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 8.8ms | Allocations: 4568)
+Completed 200 OK in 13ms (Views: 12.2ms | ActiveRecord: 0.0ms | Allocations: 5679)
+
+
+Started GET "/login" for 127.0.0.1 at 2021-02-06 04:05:10 +0530
+Processing by SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 1.7ms | Allocations: 2223)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 6.8ms | Allocations: 5907)
+Completed 200 OK in 10ms (Views: 9.0ms | ActiveRecord: 0.0ms | Allocations: 6793)
+
+
+Started POST "/login" for 127.0.0.1 at 2021-02-06 04:05:18 +0530
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "email"=>"first@g.c", "password"=>"[FILTERED]", "commit"=>"Sign In"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "first@g.c"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:15:in `create'
+Redirected to http://localhost:3000/todos
+Completed 302 Found in 264ms (ActiveRecord: 0.4ms | Allocations: 1020)
+
+
+Started GET "/todos" for 127.0.0.1 at 2021-02-06 04:05:19 +0530
+Processing by TodosController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:18:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering todos/index.html.erb within layouts/application
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos" WHERE "todos"."user_id" = $1 AND (due_date < '2021-02-06') AND "todos"."completed" = $2 AND "todos"."completed" = $3[0m  [["user_id", 13], ["completed", false], ["completed", true]]
+  ↳ app/views/todos/_todoitem-section.html.erb:5
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos" WHERE "todos"."user_id" = $1 AND (due_date < '2021-02-06') AND "todos"."completed" = $2[0m  [["user_id", 13], ["completed", false]]
+  ↳ app/views/todos/_todoitem-section.html.erb:5
+  [1m[36mTodo Load (0.6ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = $1 AND (due_date < '2021-02-06') AND "todos"."completed" = $2[0m  [["user_id", 13], ["completed", false]]
+  ↳ app/views/todos/_todoitem-section.html.erb:10
+  Rendered todos/_todoitem-section.html.erb (Duration: 14.3ms | Allocations: 2741)
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos" WHERE "todos"."user_id" = $1 AND (due_date = '2021-02-06') AND "todos"."completed" = $2[0m  [["user_id", 13], ["completed", true]]
+  ↳ app/views/todos/_todoitem-section.html.erb:5
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos" WHERE "todos"."user_id" = $1 AND (due_date = '2021-02-06')[0m  [["user_id", 13]]
+  ↳ app/views/todos/_todoitem-section.html.erb:5
+  [1m[36mTodo Load (0.4ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = $1 AND (due_date = '2021-02-06')[0m  [["user_id", 13]]
+  ↳ app/views/todos/_todoitem-section.html.erb:10
+  Rendered todos/_todoitem-section.html.erb (Duration: 15.3ms | Allocations: 6804)
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos" WHERE "todos"."user_id" = $1 AND (due_date > '2021-02-06') AND "todos"."completed" = $2[0m  [["user_id", 13], ["completed", true]]
+  ↳ app/views/todos/_todoitem-section.html.erb:5
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos" WHERE "todos"."user_id" = $1 AND (due_date > '2021-02-06')[0m  [["user_id", 13]]
+  ↳ app/views/todos/_todoitem-section.html.erb:5
+  [1m[36mTodo Load (0.8ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = $1 AND (due_date > '2021-02-06')[0m  [["user_id", 13]]
+  ↳ app/views/todos/_todoitem-section.html.erb:10
+  Rendered todos/_todoitem-section.html.erb (Duration: 10.3ms | Allocations: 2776)
+  Rendered todos/index.html.erb within layouts/application (Duration: 46.8ms | Allocations: 14021)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 51.0ms | Allocations: 17673)
+Completed 200 OK in 59ms (Views: 42.9ms | ActiveRecord: 10.3ms | Allocations: 20160)
+
+
+Started GET "/" for 127.0.0.1 at 2021-02-06 04:05:23 +0530
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:18:in `current_user'
+  Rendered home/index.html.erb within layouts/application (Duration: 4.6ms | Allocations: 743)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 11.2ms | Allocations: 4557)
+Completed 200 OK in 13ms (Views: 11.7ms | ActiveRecord: 0.4ms | Allocations: 4915)
+
+
+Started GET "/" for 127.0.0.1 at 2021-02-06 04:07:08 +0530
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:18:in `current_user'
+  Rendered home/index.html.erb within layouts/application (Duration: 2.6ms | Allocations: 964)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 45.0ms | Allocations: 21146)
+Completed 200 OK in 47ms (Views: 46.7ms | ActiveRecord: 0.2ms | Allocations: 22243)
+
+
+Started GET "/" for 127.0.0.1 at 2021-02-06 04:07:09 +0530
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:18:in `current_user'
+  Rendered home/index.html.erb within layouts/application (Duration: 3.1ms | Allocations: 751)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 8.2ms | Allocations: 4561)
+Completed 200 OK in 10ms (Views: 8.7ms | ActiveRecord: 0.3ms | Allocations: 4919)
+
+
+Started GET "/" for 127.0.0.1 at 2021-02-06 04:07:09 +0530
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:18:in `current_user'
+  Rendered home/index.html.erb within layouts/application (Duration: 5.6ms | Allocations: 737)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 13.1ms | Allocations: 4547)
+Completed 200 OK in 15ms (Views: 13.7ms | ActiveRecord: 0.4ms | Allocations: 4904)
+
+
+Started GET "/" for 127.0.0.1 at 2021-02-06 04:07:09 +0530
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:18:in `current_user'
+  Rendered home/index.html.erb within layouts/application (Duration: 6.1ms | Allocations: 737)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 18.6ms | Allocations: 6649)
+Completed 200 OK in 20ms (Views: 18.3ms | ActiveRecord: 1.1ms | Allocations: 7006)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2021-02-06 04:07:23 +0530
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+Redirected to http://localhost:3000/
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms | Allocations: 288)
+
+
+Started GET "/" for 127.0.0.1 at 2021-02-06 04:07:23 +0530
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.6ms | Allocations: 99)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 8.2ms | Allocations: 3884)
+Completed 200 OK in 10ms (Views: 8.9ms | ActiveRecord: 0.0ms | Allocations: 4249)
+
+
+Started GET "/" for 127.0.0.1 at 2021-02-06 04:07:45 +0530
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.3ms | Allocations: 106)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 4.7ms | Allocations: 3851)
+Completed 200 OK in 6ms (Views: 5.5ms | ActiveRecord: 0.0ms | Allocations: 4393)
+
+
+Started GET "/login" for 127.0.0.1 at 2021-02-06 04:07:47 +0530
+Processing by SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 2.2ms | Allocations: 2190)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 8.7ms | Allocations: 5874)
+Completed 200 OK in 12ms (Views: 11.2ms | ActiveRecord: 0.0ms | Allocations: 6803)
+
+
+Started POST "/login" for 127.0.0.1 at 2021-02-06 04:07:52 +0530
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "email"=>"first@g.c", "password"=>"[FILTERED]", "commit"=>"Sign In"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "first@g.c"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:15:in `create'
+Redirected to http://localhost:3000/
+Completed 302 Found in 281ms (ActiveRecord: 6.1ms | Allocations: 5706)
+
+
+Started GET "/" for 127.0.0.1 at 2021-02-06 04:07:53 +0530
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:18:in `current_user'
+  Rendered home/index.html.erb within layouts/application (Duration: 3.4ms | Allocations: 838)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 11.4ms | Allocations: 4657)
+Completed 200 OK in 12ms (Views: 11.7ms | ActiveRecord: 0.3ms | Allocations: 5024)
+
+
+Started GET "/todos" for 127.0.0.1 at 2021-02-06 04:07:55 +0530
+Processing by TodosController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:18:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering todos/index.html.erb within layouts/application
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos" WHERE "todos"."user_id" = $1 AND (due_date < '2021-02-06') AND "todos"."completed" = $2 AND "todos"."completed" = $3[0m  [["user_id", 13], ["completed", false], ["completed", true]]
+  ↳ app/views/todos/_todoitem-section.html.erb:5
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos" WHERE "todos"."user_id" = $1 AND (due_date < '2021-02-06') AND "todos"."completed" = $2[0m  [["user_id", 13], ["completed", false]]
+  ↳ app/views/todos/_todoitem-section.html.erb:5
+  [1m[36mTodo Load (0.4ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = $1 AND (due_date < '2021-02-06') AND "todos"."completed" = $2[0m  [["user_id", 13], ["completed", false]]
+  ↳ app/views/todos/_todoitem-section.html.erb:10
+  Rendered todos/_todoitem-section.html.erb (Duration: 11.7ms | Allocations: 2742)
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos" WHERE "todos"."user_id" = $1 AND (due_date = '2021-02-06') AND "todos"."completed" = $2[0m  [["user_id", 13], ["completed", true]]
+  ↳ app/views/todos/_todoitem-section.html.erb:5
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos" WHERE "todos"."user_id" = $1 AND (due_date = '2021-02-06')[0m  [["user_id", 13]]
+  ↳ app/views/todos/_todoitem-section.html.erb:5
+  [1m[36mTodo Load (0.5ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = $1 AND (due_date = '2021-02-06')[0m  [["user_id", 13]]
+  ↳ app/views/todos/_todoitem-section.html.erb:10
+  Rendered todos/_todoitem-section.html.erb (Duration: 17.9ms | Allocations: 6766)
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos" WHERE "todos"."user_id" = $1 AND (due_date > '2021-02-06') AND "todos"."completed" = $2[0m  [["user_id", 13], ["completed", true]]
+  ↳ app/views/todos/_todoitem-section.html.erb:5
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos" WHERE "todos"."user_id" = $1 AND (due_date > '2021-02-06')[0m  [["user_id", 13]]
+  ↳ app/views/todos/_todoitem-section.html.erb:5
+  [1m[36mTodo Load (0.6ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = $1 AND (due_date > '2021-02-06')[0m  [["user_id", 13]]
+  ↳ app/views/todos/_todoitem-section.html.erb:10
+  Rendered todos/_todoitem-section.html.erb (Duration: 7.7ms | Allocations: 2776)
+  Rendered todos/index.html.erb within layouts/application (Duration: 45.0ms | Allocations: 13985)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 51.3ms | Allocations: 17633)
+Completed 200 OK in 60ms (Views: 42.8ms | ActiveRecord: 10.6ms | Allocations: 20114)
+
+

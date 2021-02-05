@@ -3,7 +3,12 @@ class SessionsController < ApplicationController
     skip_before_action :require_login
 
     def new
-        render "new"
+        # If already logged in, redirect to home page
+        if current_user
+            redirect_to root_path
+        else
+            render "new"
+        end
     end
 
     def create
@@ -11,7 +16,7 @@ class SessionsController < ApplicationController
         if(user && user.authenticate(params[:password]))
             session[:current_user_id] = user.id
             flash[:info] = Array("Signed in successfully!")
-            redirect_to todos_path
+            redirect_to root_path
         else
             flash[:error] = Array("Incorrect email or password. Please retry!")
             redirect_to new_session_path

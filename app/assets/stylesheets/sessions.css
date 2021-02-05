@@ -5,7 +5,8 @@ body {
 }
 
 .SigninPage__title{
-    font-size: 24px;
+    font-size: 20px;
+    font-weight: 600;
     color: #262927;
     margin-bottom: 16px;
 }

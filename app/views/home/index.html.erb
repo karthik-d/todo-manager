@@ -2,14 +2,25 @@
 
     <h1 class="HomePage__title"> Welcome to the Todos Manager </h1>
 
-    <section class="HomePage__auth">
-        <h3 class="HomePage__authText">New here? </h3>
-        <%= link_to("Sign Up", new_user_path, class: "HomePage__authLink") %>
-    </section>
+    <% if current_user %>
 
-    <section class="HomePage__auth">
-        <h3 class="HomePage__authText">Already managing your todos here? </h3>
-        <%= link_to("Sign In", new_session_path, class: "HomePage__authLink") %>
-    </section>
+        <section class="HomePage__path">
+            <h3 class="HomePage__pathText">Feel like woking? Let's see what's pending... </h3>
+            <%= link_to("View Todos", todos_path, class: "HomePage__pathLink") %>
+        </section>
+
+    <% else %>
+
+        <section class="HomePage__auth">
+            <h3 class="HomePage__authText">New here? </h3>
+            <%= link_to("Sign Up", new_user_path, class: "HomePage__authLink") %>
+        </section>
+
+        <section class="HomePage__auth">
+            <h3 class="HomePage__authText">Already managing your todos here? </h3>
+            <%= link_to("Sign In", new_session_path, class: "HomePage__authLink") %>
+        </section>
+
+    <% end %>
 
 </article>
