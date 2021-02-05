@@ -19,10 +19,29 @@
                 <p class="App__userText"> Hey there, <%= current_user.firstname %> </p>
                 <%= link_to("Sign Out", destroy_session_path, method: "delete", class: "App__signout") %>
             <% else %>
-                <p class="App__userText"> Hey there, Guest</p>                
+                <p class="App__userText"> Hey there, Guest</p>
             <% end %>
         </div>
-        <hr />
+
+        <div class="App__hrline">
+            <hr />
+        </div>
+
+        <% if flash[:error] %>
+            <% flash[:error].each do |msg| %>
+                <div class="App__error">
+                    <p class="App__errorText"> <%= msg %> </p>
+                </div>
+            <% end %>
+        <% end %>
+
+        <% if flash[:info] %>
+            <% flash[:info].each do |msg| %>
+                <div class="App__info">
+                    <p class="App__infoText"> <%= msg %> </p>
+                </div>
+            <% end %>
+        <% end %>
 
     </section>
 

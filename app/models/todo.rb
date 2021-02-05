@@ -1,5 +1,7 @@
 class Todo < ActiveRecord::Base
     belongs_to :user
+    validates :todo_text, presence: true, length: {minimum: 2}
+    validates :due_date, presence: true
 
     def to_pleasant_string
         checkbox = completed ? "[X]" : "[ ]"

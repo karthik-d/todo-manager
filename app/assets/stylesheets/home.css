@@ -5,6 +5,38 @@ body {
     background-color: white;
 }
 
+.App__error{
+    margin-top: 6px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 95%;
+    background: #f8d7da;;
+}
+.App__errorText{
+    font-size: 12px;
+    font-weight: 600;
+    color: #8b1c24;
+    padding: 8px;
+}
+
+.App__info{
+    margin-top: 6px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 95%;
+    background: #d1ecf1;;;
+}
+.App__infoText{
+    font-size: 12px;
+    font-weight: 600;
+    color: #0c5484;
+    padding: 8px;
+}
+
+.App__hrline{
+    margin-bottom: 20px;
+}
+
 .App__header{
     margin-bottom: 40px;
 }

@@ -21,18 +21,21 @@ class UsersController < ApplicationController
 
   def create
     # POST /users - SIGNUP
-    user = User.create!(
+    user = User.new(
       firstname: params[:firstname],
       lastname: params[:lastname],
       email: params[:email],
       password: params[:password],
     )
     # Login user upon successful signup
-    if (user)
+    # Run validations
+    if (user.save)
+      flash[:info] = Array("Created your space. Lets start managing your todos!")
       session[:current_user_id] = user.id
       redirect_to todos_path
     else
-      redirect_to root_path
+      flash[:error] = user.errors.full_messages
+      redirect_to new_user_path
     end
   end
 end
