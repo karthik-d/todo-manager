@@ -13,8 +13,17 @@
   <body>
 
     <section class="App__header">
-        <p class="App__userText"> Hey there, <%= current_user ? current_user.firstname : "Guest User" %> </p>
+
+        <div class="App__headerTop">
+            <% if current_user %>
+                <p class="App__userText"> Hey there, <%= current_user.firstname %> </p>
+                <%= link_to("Sign Out", destroy_session_path, method: "delete", class: "App__signout") %>
+            <% else %>
+                <p class="App__userText"> Hey there, Guest</p>                
+            <% end %>
+        </div>
         <hr />
+
     </section>
 
     <%= yield %>

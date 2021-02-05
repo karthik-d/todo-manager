@@ -5,8 +5,14 @@ body {
     background-color: white;
 }
 
-.App__header {
+.App__header{
     margin-bottom: 40px;
+}
+
+.App__headerTop {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .App__userText {
@@ -15,7 +21,24 @@ body {
     color: #453C52;
     line-height: 1.4;
     margin-right: 20px;
-    text-align: right;
+}
+
+.App__signin, .App__signout {
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 600;
+    border-radius: 6px;
+    width: max-content;
+    color: white;
+    padding: 8px;
+}
+
+.App__signin {
+    background-color: #48BB78;
+}
+
+.App__signout {
+    background-color: #941a18;
 }
 
 .HomePage__title {
