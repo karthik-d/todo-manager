@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
+
   def index
+    # GET /users
     render plain: User.order(:firstname).
              map(&:to_pleasant_string).
              join("\n")
@@ -23,7 +25,7 @@ class UsersController < ApplicationController
       email: params[:email],
       password: params[:password],
     )
-    redirect_to "/"
+    redirect_to root_path
   end
 
   def login
