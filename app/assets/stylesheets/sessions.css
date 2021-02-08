@@ -4,29 +4,29 @@ body {
     background-color: white;
 }
 
-.SigninPage__title{
+.SigninPage__title {
     font-size: 20px;
     font-weight: 600;
     color: #262927;
     margin-bottom: 16px;
 }
 
-.SigninPage__subtitle{
+.SigninPage__subtitle {
     font-size: 18px;
     color: #453C52;
     margin-left: 5px;
 }
 
-.Signin__section{
+.Signin__section {
     margin: 40px auto;
 }
 
-.Signin__field{
+.Signin__field {
     width: inherit;
     margin: 30px auto;
 }
 
-.Signin__label{
+.Signin__label {
     margin-left: 2px;
     color: #453C52;
     display: block;
@@ -35,13 +35,13 @@ body {
     margin-bottom: 6px;
 }
 
-.Signin__input{
+.Signin__input {
     padding: 8px 1px;
     font-size: 16px;
-    color:  #1c1c1a;
+    color: #1c1c1a;
 }
 
-.Signin__submit{
+.Signin__submit {
     width: 20%;
     margin: 10px auto;
     border: 1px transparent;
